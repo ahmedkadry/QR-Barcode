@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شروط الاستخدام - Terms of Service</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <style> body { font-family: 'Cairo', sans-serif; } </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col justify-between">
+
+    <!-- Header -->
+    <header class="bg-slate-800 border-b border-slate-700 py-4 px-6">
+        <div class="max-w-4xl mx-auto flex justify-between items-center">
+            <a href="/" class="text-xl font-bold text-teal-400 hover:text-teal-300 transition-colors" data-i18n="back_home">← العودة للموقع الرئيسي</a>
+            <select id="langSelect" onchange="setLanguage(this.value)" class="bg-slate-700 text-slate-100 px-3 py-1.5 rounded-lg border border-slate-600 focus:outline-none text-sm">
+                <option value="ar">العربية</option>
+                <option value="en">English</option>
+            </select>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto w-full my-8 p-6 bg-slate-800 rounded-2xl border border-slate-700 shadow-xl space-y-6 text-slate-300 text-sm leading-relaxed">
+        
+        <h1 data-i18n="title" class="text-2xl md:text-3xl font-bold text-teal-400 border-b border-slate-700 pb-3">شروط الاستخدام</h1>
+        <p data-i18n="last_updated" class="text-xs text-slate-400">آخر تحديث: أغسطس 2026</p>
+
+        <!-- Section 1 -->
+        <section class="space-y-2">
+            <h2 data-i18n="sec1_title" class="text-lg font-bold text-slate-100">1. القبول بالشروط</h2>
+            <p data-i18n="sec1_text">بوصولك واستخدامك لأداة توليد الباركود و QR Code، فإنك توافق على الالتزام بشروط الاستخدام هذه وكافة القوانين واللوائح المعمول بها. إذا كنت لا توافق على أي من هذه الشروط، يُحظر عليك استخدام هذا الموقع أو الوصول إليه.</p>
+        </section>
+
+        <!-- Section 2 -->
+        <section class="space-y-2">
+            <h2 data-i18n="sec2_title" class="text-lg font-bold text-slate-100">2. ترخيص الاستخدام والقيود</h2>
+            <p data-i18n="sec2_text1">يُسمح لك استخدام هذه الأداة لتوليد الأكواد لاستخداماتك الشخصية أو التجارية مجاناً. ومع ذلك، لا يجوز لك:</p>
+            <ul class="list-disc list-inside space-y-1 text-slate-300 pr-4 rtl:pr-4 ltr:pl-4">
+                <li data-i18n="sec2_li1">استخدام الأداة لإنشاء أكواد ترمز لمحتوى غير قانوني، ضار، أو ينتهك حقوق الملكية الفكرية للآخرين.</li>
+                <li data-i18n="sec2_li2">محاولة إغراق الخوادم بطلبات وهمية (DDoS) أو تعطيل الخدمة بأي شكل.</li>
+                <li data-i18n="sec2_li3">إعادة هندسة الكود البرمجي للخادم أو استغلال ثغرات للنفاذ غير المصرح به.</li>
+            </ul>
+        </section>
+
+        <!-- Section 3 -->
+        <section class="space-y-2">
+            <h2 data-i18n="sec3_title" class="text-lg font-bold text-slate-100">3. إخلاء المسؤولية (Disclaimer)</h2>
+            <p data-i18n="sec3_text">تُقدَّم هذه الخدمة "كما هي" دون أي ضمانات صريحة أو ضمنية. نحن لا نضمن أن الأكواد المولدة ستكون خالية تماماً من الأخطاء عند مسحها بأجهزة الطرف الثالث إذا تم إدخال بيانات غير صحيحة من قبل المستخدم، ولا نتحمل أي مسؤولية عن الأضرار الناتجة عن استخدام الأكواد المولدة.</p>
+        </section>
+
+        <!-- Section 4 -->
+        <section class="space-y-2">
+            <h2 data-i18n="sec4_title" class="text-lg font-bold text-slate-100">4. الإعلانات والروابط الخارجية</h2>
+            <p data-i18n="sec4_text">قد يحتوي الموقع على إعلانات معروضة عبر شبكات إعلانية مثل Google AdSense أو روابط لمواقع خارجية. نحن لا نتحمل المسؤولية عن محتوى أو سياسات الخصوصية الخاصة بهذه المواقع والخدمات الخارجية.</p>
+        </section>
+
+        <!-- Section 5 -->
+        <section class="space-y-2">
+            <h2 data-i18n="sec5_title" class="text-lg font-bold text-slate-100">5. التعديلات على الشروط</h2>
+            <p data-i18n="sec5_text">نحتفظ بالحق في تعديل أو استبدال شروط الاستخدام هذه في أي وقت دون إشعار مسبق. يُعتبر استمرارك في استخدام الموقع بعد إدخال أي تغييرات بمثابة قبول بالشروط الجديدة.</p>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-800 border-t border-slate-700 py-4 text-center text-xs text-slate-400">
+        <p>© 2026 All rights reserved.</p>
+    </footer>
+
+    <!-- i18n Script -->
+    <script>
+        const translations = {
+            ar: {
+                back_home: "← العودة للموقع الرئيسي",
+                title: "شروط الاستخدام",
+                last_updated: "آخر تحديث: أغسطس 2026",
+                sec1_title: "1. القبول بالشروط",
+                sec1_text: "بوصولك واستخدامك لأداة توليد الباركود و QR Code، فإنك توافق على الالتزام بشروط الاستخدام هذه وكافة القوانين واللوائح المعمول بها. إذا كنت لا توافق على أي من هذه الشروط، يُحظر عليك استخدام هذا الموقع أو الوصول إليه.",
+                sec2_title: "2. ترخيص الاستخدام والقيود",
+                sec2_text1: "يُسمح لك استخدام هذه الأداة لتوليد الأكواد لاستخداماتك الشخصية أو التجارية مجاناً. ومع ذلك، لا يجوز لك:",
+                sec2_li1: "استخدام الأداة لإنشاء أكواد ترمز لمحتوى غير قانوني، ضار، أو ينتهك حقوق الملكية الفكرية للآخرين.",
+                sec2_li2: "محاولة إغراق الخوادم بطلبات وهمية (DDoS) أو تعطيل الخدمة بأي شكل.",
+                sec2_li3: "إعادة هندسة الكود البرمجي للخادم أو استغلال ثغرات للنفاذ غير المصرح به.",
+                sec3_title: "3. إخلاء المسؤولية (Disclaimer)",
+                sec3_text: "تُقدَّم هذه الخدمة \"كما هي\" دون أي ضمانات صريحة أو ضمنية. نحن لا نضمن أن الأكواد المولدة ستكون خالية تماماً من الأخطاء عند مسحها بأجهزة الطرف الثالث إذا تم إدخال بيانات غير صحيحة من قبل المستخدم، ولا نتحمل أي مسؤولية عن الأضرار الناتجة عن استخدام الأكواد المولدة.",
+                sec4_title: "4. الإعلانات والروابط الخارجية",
+                sec4_text: "قد يحتوي الموقع على إعلانات معروضة عبر شبكات إعلانية مثل Google AdSense أو روابط لمواقع خارجية. نحن لا نتحمل المسؤولية عن محتوى أو سياسات الخصوصية الخاصة بهذه المواقع والخدمات الخارجية.",
+                sec5_title: "5. التعديلات على الشروط",
+                sec5_text: "نحتفظ بالحق في تعديل أو استبدال شروط الاستخدام هذه في أي وقت دون إشعار مسبق. يُعتبر استمرارك في استخدام الموقع بعد إدخال أي تغييرات بمثابة قبول بالشروط الجديدة."
+            },
+            en: {
+                back_home: "← Back to Home",
+                title: "Terms of Service",
+                last_updated: "Last Updated: August 2026",
+                sec1_title: "1. Acceptance of Terms",
+                sec1_text: "By accessing and using this Barcode & QR Code Generator tool, you agree to be bound by these Terms of Service and all applicable laws and regulations. If you do not agree with any of these terms, you are prohibited from using this site.",
+                sec2_title: "2. Use License & Restrictions",
+                sec2_text1: "You are permitted to use this tool to generate codes for personal or commercial use free of charge. However, you may not:",
+                sec2_li1: "Use the tool to generate codes encoding illegal, harmful, or copyright-infringing content.",
+                sec2_li2: "Attempt to overload servers with automated requests (DDoS) or disrupt service operations.",
+                sec2_li3: "Reverse engineer the server code or exploit security vulnerabilities.",
+                sec3_title: "3. Disclaimer",
+                sec3_text: "This service is provided \"as is\" without warranties of any kind. We do not guarantee that generated codes will be scan-error-free if invalid data is provided, nor do we accept liability for damages resulting from code usage.",
+                sec4_title: "4. Advertising and External Links",
+                sec4_text: "This site may display third-party advertisements via networks like Google AdSense or links to external sites. We hold no responsibility for third-party content or privacy practices.",
+                sec5_title: "5. Modifications to Terms",
+                sec5_text: "We reserve the right to revise or replace these Terms of Service at any time without prior notice. Continued usage signifies acceptance of updated terms."
+            }
+        };
+
+        function setLanguage(lang) {
+            document.documentElement.lang = lang;
+            document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+        }
+
+        // Default language setup
+        setLanguage('ar');
+    </script>
+</body>
+</html>

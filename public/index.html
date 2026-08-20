@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مولد الباركود و QR Code المجاني - أداة توليد الأكواد احترافية</title>
+    <meta name="description" content="أداة مجانية لتوليد أكواد QR Code والباركود بجميع الأنواع (Code128, EAN-13, UPC). قم بتخصيص الألوان والحجم وتحميل الكود بصيغ PNG و SVG.">
+    
+    <!-- Google AdSense Script (استبدل client برقم المعرف الخاص بك) -->
+    <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <style> body { font-family: 'Cairo', sans-serif; } </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col justify-between">
+    <!-- Navbar -->
+    <header class="bg-slate-800 border-b border-slate-700 py-4 px-6">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <h1 data-i18n="title" class="text-xl md:text-2xl font-bold text-teal-400">مولد الباركود و QR Code</h1>
+            <div class="flex items-center gap-4">
+                <select id="langSelect" onchange="setLanguage(this.value)" class="bg-slate-700 text-slate-100 px-3 py-1.5 rounded-lg border border-slate-600 focus:outline-none text-sm">
+                    <option value="ar">العربية</option>
+                    <option value="en">English</option>
+                </select>
+            </div>
+        </div>
+    </header>
+
+    <!-- Ad Unit 1: Header Banner Ad (728x90 / Responsive) -->
+    <div class="max-w-4xl mx-auto w-full mt-4 text-center">
+        <div class="bg-slate-800/50 border border-slate-700/50 rounded-lg p-2 min-h-[90px] flex items-center justify-center text-slate-500 text-xs">
+            <!-- مساحة إعلانية - إعلان أعلى الصفحة -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                 data-ad-slot="1234567890"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+    </div>
+    <!-- Main Generator App -->
+    <main class="max-w-4xl mx-auto w-full my-6 p-4" >
+        <div class="bg-slate-800 rounded-2xl shadow-2xl border border-slate-300 p-6 md:p-8">               
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Controls -->
+                <div class="space-y-4">
+                    <div>
+                        <label data-i18n="type_label" class="block text-sm font-medium mb-1">نوع الكود</label>
+                        <select id="mode" class="w-full bg-slate-700 p-3 rounded-lg border border-slate-600" onchange="toggleBarcodeOptions()">
+                            <option value="qr">QR Code</option>
+                            <option value="barcode">Barcode</option>
+                        </select>
+                    </div>
+
+                    <div id="barcodeTypeGroup" class="hidden">
+                        <label data-i18n="barcode_type" class="block text-sm font-medium mb-1">صيغة الباركود</label>
+                        <select id="bcid" class="w-full bg-slate-700 p-3 rounded-lg border border-slate-600">
+                            <option value="code128">Code 128</option>
+                            <option value="ean13">EAN-13</option>
+                            <option value="upca">UPC-A</option>
+                            <option value="code39">Code 39</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label data-i18n="text_label" class="block text-sm font-medium mb-1">النص / الرابط</label>
+                        <input type="text" id="inputText" data-i18n="text_placeholder" placeholder="أدخل النص..." class="w-full bg-slate-700 p-3 rounded-lg border border-slate-600 focus:border-teal-400 focus:outline-none">
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label data-i18n="size_label" class="block text-sm font-medium mb-1">الحجم</label>
+                            <input type="number" id="size" value="300" class="w-full bg-slate-700 p-3 rounded-lg border border-slate-600">
+                        </div>
+                        <div>
+                            <label data-i18n="color_label" class="block text-sm font-medium mb-1">اللون</label>
+                            <input type="color" id="color" value="#000000" class="w-full h-12 bg-slate-700 p-1 rounded-lg border border-slate-600 cursor-pointer">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label data-i18n="format_label" class="block text-sm font-medium mb-1">صيغة التحميل</label>
+                        <select id="fileFormat" class="w-full bg-slate-700 p-3 rounded-lg border border-slate-600">
+                            <option value="png">PNG</option>
+                            <option value="svg">SVG</option>
+                        </select>
+                    </div>
+
+                    <button onclick="generateCode()" data-i18n="generate_btn" class="w-full bg-teal-500 hover:bg-teal-600 text-slate-900 font-bold py-3 rounded-lg transition-colors">
+                        توليد الكود
+                    </button>
+                </div>
+
+                <!-- Preview Area -->
+                <div class="flex flex-col items-center justify-center border-2 border-dashed border-slate-700 rounded-xl p-6 bg-slate-800/50">
+                    <div id="previewBox" class="bg-white p-4 rounded-lg shadow-md mb-6 flex items-center justify-center min-h-[200px] min-w-[200px]">
+                        <span class="text-slate-400 text-sm">Preview Area</span>
+                    </div>
+
+                    <button id="downloadBtn" onclick="downloadCode()" data-i18n="download_btn" class="hidden bg-slate-700 hover:bg-slate-600 text-teal-400 border border-teal-500/30 font-bold px-6 py-2.5 rounded-lg transition-colors">
+                        تحميل الكود
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- SEO Content Block (ضروري جداً لقبول AdSense لإضافة قيمة للمحتوى) -->
+        <article class="mt-8 p-6 bg-slate-800/60 rounded-xl border border-slate-700/60 space-y-4 text-slate-300 text-sm leading-relaxed">
+            <h2 class="text-lg font-bold text-teal-400" data-i18n="seo_title">كيفية استخدام أداة توليد الباركود و QR Code</h2>
+            <p data-i18n="seo_desc">تتيح لك هذه الأداة المجانية إنشاء أكواد الباركود و QR Codes عالية الدقة بسرعة وسهولة. يمكنك استخدامها لإدارة المنتجات، الروابط، النصوص، والمزيد. اختر نوع الكود المطلوب، أدخل البيانات، وقم بتخصيص الألوان والأبحاث ثم حمل النتيجة بصيغة PNG أو SVG.</p>
+        </article>
+
+        <!-- Ad Unit 2: Bottom Native / Display Ad -->
+        <div class="mt-6 text-center">
+            <div class="bg-slate-800/50 border border-slate-700/50 rounded-lg p-2 min-h-[250px] flex items-center justify-center text-slate-500 text-xs">
+                <!-- مساحة إعلانية أسفل المحتوى -->
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                     data-ad-slot="0987654321"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer Links (شرط أساسي لـ AdSense) -->
+    <footer class="bg-slate-800 border-t border-slate-700 py-6 text-center text-xs text-slate-400">
+        <div class="max-w-4xl mx-auto flex flex-wrap justify-center gap-6 mb-2">
+            <a href="/privacy-policy.html" class="hover:text-teal-400 transition-colors">سياسة الخصوصية (Privacy Policy)</a>
+            <a href="/terms.html" class="hover:text-teal-400 transition-colors">شروط الاستخدام (Terms)</a>
+            <a href="/about.html" class="hover:text-teal-400 transition-colors">عن الموقع (About Us)</a>
+        </div>
+        <p>© 2026 Barcode & QR Generator. All rights reserved.</p>
+    </footer>
+
+    <script src="js/i18n.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
